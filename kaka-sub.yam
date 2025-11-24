@@ -1,0 +1,54 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+
+proxies:
+  - name: "kaka-ncj8gl84"
+    type: vmess
+    server: 104.247.120.73
+    port: 38080
+    uuid: 09b816f8-125e-40aa-9b53-e09568ebf46a
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+    skip-cert-verify: true
+
+  - name: "kaka-5bc24ywd"
+    type: vmess
+    server: 116.206.93.48
+    port: 58977
+    uuid: f568f62e-490f-472b-b464-4f2a426c8f89
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+    skip-cert-verify: true
+
+  - name: "kaka-ssr"
+    type: ssr
+    server: 56.ddns.appw.in
+    port: 200
+    cipher: none
+    password: "yaya"
+    protocol: auth_chain_a
+    obfs: http_simple
+    protocol-param: ""
+    obfs-param: ""
+    udp: true
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - "kaka-ncj8gl84"
+      - "kaka-5bc24ywd"
+      - "kaka-ssr"
+      - DIRECT
+
+rules:
+  - MATCH,Proxy
