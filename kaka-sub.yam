@@ -41,6 +41,18 @@ proxies:
     obfs-param: ""
     udp: true
 
+  - name: "kaka-62yxziog"
+    type: vmess
+    server: 8.211.169.232
+    port: 18955
+    uuid: 32d79f0e-5c23-480e-9414-63532a28139f
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+    skip-cert-verify: true
+
 proxy-groups:
   - name: "Proxy"
     type: select
@@ -48,7 +60,10 @@ proxy-groups:
       - "kaka-ncj8gl84"
       - "kaka-5bc24ywd"
       - "kaka-ssr"
+      - "kaka-62yxziog"
       - DIRECT
 
 rules:
   - MATCH,Proxy
+
+
