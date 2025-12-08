@@ -134,41 +134,8 @@ dns:
       - +.googleapis.com
       - +.gvt1.com
 
-# 杩欓噷寮€濮嬫槸浣犵殑鑷敤鏈嶅姟鍣ㄨ妭鐐�
+
 proxies:
-  - name: "mvoecsoh"
-    type: ss
-    server: 104.247.120.73
-    port: 36795
-    cipher: chacha20-ietf-poly1305
-    password: "ucYD4TY9Ly4yrzTWWoPawWEUMSD+sBMoBLHscM+TWT0="
-    udp: true
-
-  - name: "kaka-mkujoric"
-    type: vmess
-    server: 116.206.93.48
-    port: 11683
-    uuid: 65689658-a81d-40fd-bd1c-b67998737e9c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: false
-    network: tcp
-    skip-cert-verify: true
-
-  - name: "kaka-ncj8gl84"
-    type: vmess
-    server: 104.247.120.73
-    port: 38080
-    uuid: 09b816f8-125e-40aa-9b53-e09568ebf46a
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: false
-    network: tcp
-    skip-cert-verify: true
-
-  # ===== 涓嬮潰鏄綘杩欐鏂版彁渚涚殑鎵€鏈夎妭鐐癸紝宸插叏閮ㄥ姞鍏� =====
 
   - name: "vless-sg-ynctc-ws-tls"
     type: vless
@@ -266,9 +233,6 @@ proxy-groups:
       - 鈾伙笍鑷姩閫夋嫨
       - 馃敮鏁呴殰杞Щ
       - 馃敟ChatGPT
-      - mvoecsoh
-      - kaka-mkujoric
-      - kaka-ncj8gl84
       - vless-sg-ynctc-ws-tls
       - vmess-34.142.233.190-51870
       - vmess-206.223.84.193-27811
@@ -278,34 +242,10 @@ proxy-groups:
       - vmess-8.211.169.232-18955
       - ss-11b0072d-ed8b-491d-b9e4-49e0014ba805
       - DIRECT
-
-  # 鑷姩娴嬮€燂細鍦ㄤ綘鑷繁鐨� 3 涓妭鐐逛箣闂存祴閫熼€夋渶蹇紙濡傛兂鍖呭惈鏂拌妭鐐癸紝鍙互鑷鍔犱笂锛�
-  - name: 鈾伙笍鑷姩閫夋嫨
-    type: url-test
-    proxies:
-      - mvoecsoh
-      - kaka-mkujoric
-      - kaka-ncj8gl84
-    url: 'http://1.1.1.1'
-    interval: 600
-
-  # 鏁呴殰杞Щ锛氫紭鍏堢涓€涓紝鎸備簡鑷姩鍒囦笅涓€涓�
-  - name: 馃敮鏁呴殰杞Щ
-    type: fallback
-    proxies:
-      - mvoecsoh
-      - kaka-mkujoric
-      - kaka-ncj8gl84
-    url: 'http://1.1.1.1'
-    interval: 450
-
   # ChatGPT 涓撶敤鍒嗙粍锛氳鍒欎腑澶ч噺 AI 鍩熷悕璧拌繖閲�
   - name: 馃敟ChatGPT
     type: select
     proxies:
-      - mvoecsoh
-      - kaka-mkujoric
-      - kaka-ncj8gl84
       - vless-sg-ynctc-ws-tls
       - vmess-34.142.233.190-51870
       - vmess-206.223.84.193-27811
@@ -1015,3 +955,4 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
