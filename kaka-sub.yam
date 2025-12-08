@@ -134,103 +134,186 @@ dns:
       - +.googleapis.com
       - +.gvt1.com
 
-# 杩欓噷寮€濮嬫槸浣犵殑 3 涓嚜鐢ㄦ湇鍔″櫒锛屾浛鎹㈡帀鍘熸潵涓€澶у爢 anytls/hy2/vmess
+# 杩欓噷寮€濮嬫槸浣犵殑鑷敤鏈嶅姟鍣ㄨ妭鐐�
 proxies:
-  - name: "sg-sg.ynctc.net-vless"
-    type: vless
-    server: sg.ynctc.net
-    port: 443
-    uuid: "be029bcf-7500-4436-85ba-1d42f0533281"
-    cipher: auto
-    tls: true
-    network: ws
-    ws-opts:
-      path: "/be029bcf-7500-4436-85ba-1d42f0533281"
-      headers:
-        Host: sg.ynctc.net
-
-  - name: "us-206.223.84.192-vmess"
-    type: vmess
-    server: 206.223.84.192
-    port: 27811
-    uuid: "f64764ba-0072-4a27-9e6f-2796165e9e73"
-    alterId: 0
-    cipher: auto
-    tls: false
-    network: tcp
-
-  - name: "us-206.223.84.192-ss"
+  - name: "mvoecsoh"
     type: ss
-    server: 206.223.84.192
-    port: 23322
+    server: 104.247.120.73
+    port: 36795
     cipher: chacha20-ietf-poly1305
-    password: "vC9Jda+Cd8kRrZ3hRxa1mmAeoeoxWJdR1rcfOUeIMqU="
+    password: "ucYD4TY9Ly4yrzTWWoPawWEUMSD+sBMoBLHscM+TWT0="
+    udp: true
 
-  - name: "jp-116.206.93.48-vmess"
+  - name: "kaka-mkujoric"
     type: vmess
     server: 116.206.93.48
     port: 11683
-    uuid: "65689658-a81d-40fd-bd1c-b67998737e9c"
+    uuid: 65689658-a81d-40fd-bd1c-b67998737e9c
     alterId: 0
     cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+    skip-cert-verify: true
+
+  - name: "kaka-ncj8gl84"
+    type: vmess
+    server: 104.247.120.73
+    port: 38080
+    uuid: 09b816f8-125e-40aa-9b53-e09568ebf46a
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+    skip-cert-verify: true
+
+  # ===== 涓嬮潰鏄綘杩欐鏂版彁渚涚殑鎵€鏈夎妭鐐癸紝宸插叏閮ㄥ姞鍏� =====
+
+  - name: "vless-sg-ynctc-ws-tls"
+    type: vless
+    server: sg.ynctc.net
+    port: 443
+    uuid: be029bcf-7500-4436-85ba-1d42f0533281
+    flow: ""
+    udp: true
+    tls: true
+    servername: sg.ynctc.net
+    reality-opts: {}
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: /be029bcf-7500-4436-85ba-1d42f0533281
+      headers:
+        Host: sg.ynctc.net
+
+  - name: "vmess-34.142.233.190-51870"
+    type: vmess
+    server: 34.142.233.190
+    port: 51870
+    uuid: 37b618e7-8ceb-488d-808d-c3be1579528c
+    alterId: 0
+    cipher: auto
+    udp: true
     tls: false
     network: tcp
 
-  - name: "us-104.247.120.73-ss"
+  - name: "vmess-206.223.84.193-27811"
+    type: vmess
+    server: 206.223.84.193
+    port: 27811
+    uuid: f64764ba-0072-4a27-9e6f-2796165e9e73
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+
+  - name: "ss-206.223.84.193-23322"
     type: ss
-    server: 104.247.120.73
-    port: 26406
+    server: 206.223.84.193
+    port: 23322
     cipher: chacha20-ietf-poly1305
-    password: "Y1Y4EZRx+K+Tt6fpNw5rbbOV24fM2QlbQBNTJvI1/J0="
+    password: "vC9Jda+Cd8kRrZ3hRxa1mmAeoeoxWJdR1rcfOUeIMqU="
+    udp: true
+
+  - name: "vmess-116.206.93.48-11683-2"
+    type: vmess
+    server: 116.206.93.48
+    port: 11683
+    uuid: 65689658-a81d-40fd-bd1c-b67998737e9c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+
+  - name: "vmess-104.247.120.73-38080-2"
+    type: vmess
+    server: 104.247.120.73
+    port: 38080
+    uuid: 09b816f8-125e-40aa-9b53-e09568ebf46a
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+
+  - name: "vmess-8.211.169.232-18955"
+    type: vmess
+    server: 8.211.169.232
+    port: 18955
+    uuid: 32d79f0e-5c23-480e-9414-63532a28139f
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+
+  - name: "ss-11b0072d-ed8b-491d-b9e4-49e0014ba805"
+    type: ss
+    server: 11b0072d-ed8b-491d-b9e4-49e0014ba805.tikdns.net
+    port: 15888
+    cipher: aes-128-cfb
+    password: FPOQqR4J
+    udp: true
 
 proxy-groups:
-  # 主策略组：规则里最后 MATCH, CTC-TEST 就是用这个
+  # 涓荤瓥鐣ョ粍锛氳鍒欓噷鏈€鍚� MATCH,CTC-TEST 灏辨槸鐢ㄨ繖涓�
   - name: CTC-TEST
     type: select
     proxies:
-      - ♻️自动选择
-      - 🔯故障转移
-      - 🔥ChatGPT
-      - sg-sg.ynctc.net-vless
-      - us-206.223.84.192-vmess
-      - us-206.223.84.192-ss
-      - jp-116.206.93.48-vmess
-      - us-104.247.120.73-ss
+      - 鈾伙笍鑷姩閫夋嫨
+      - 馃敮鏁呴殰杞Щ
+      - 馃敟ChatGPT
+      - mvoecsoh
+      - kaka-mkujoric
+      - kaka-ncj8gl84
+      - vless-sg-ynctc-ws-tls
+      - vmess-34.142.233.190-51870
+      - vmess-206.223.84.193-27811
+      - ss-206.223.84.193-23322
+      - vmess-116.206.93.48-11683-2
+      - vmess-104.247.120.73-38080-2
+      - vmess-8.211.169.232-18955
+      - ss-11b0072d-ed8b-491d-b9e4-49e0014ba805
       - DIRECT
 
-  # 自动测速：在你自己的节点之间测速选最快
-  - name: ♻️自动选择
+  # 鑷姩娴嬮€燂細鍦ㄤ綘鑷繁鐨� 3 涓妭鐐逛箣闂存祴閫熼€夋渶蹇紙濡傛兂鍖呭惈鏂拌妭鐐癸紝鍙互鑷鍔犱笂锛�
+  - name: 鈾伙笍鑷姩閫夋嫨
     type: url-test
     proxies:
-      - sg-sg.ynctc.net-vless
-      - us-206.223.84.192-vmess
-      - us-206.223.84.192-ss
-      - jp-116.206.93.48-vmess
-      - us-104.247.120.73-ss
+      - mvoecsoh
+      - kaka-mkujoric
+      - kaka-ncj8gl84
     url: 'http://1.1.1.1'
     interval: 600
 
-  # 故障转移：优先第一个，挂了自动切下一个
-  - name: 🔯故障转移
+  # 鏁呴殰杞Щ锛氫紭鍏堢涓€涓紝鎸備簡鑷姩鍒囦笅涓€涓�
+  - name: 馃敮鏁呴殰杞Щ
     type: fallback
     proxies:
-      - sg-sg.ynctc.net-vless
-      - us-206.223.84.192-vmess
-      - us-206.223.84.192-ss
-      - jp-116.206.93.48-vmess
-      - us-104.247.120.73-ss
+      - mvoecsoh
+      - kaka-mkujoric
+      - kaka-ncj8gl84
     url: 'http://1.1.1.1'
     interval: 450
 
-  # ChatGPT 专用分组：AI 相关域名走这里
-  - name: 🔥ChatGPT
+  # ChatGPT 涓撶敤鍒嗙粍锛氳鍒欎腑澶ч噺 AI 鍩熷悕璧拌繖閲�
+  - name: 馃敟ChatGPT
     type: select
     proxies:
-      - sg-sg.ynctc.net-vless
-      - us-206.223.84.192-vmess
-      - us-206.223.84.192-ss
-      - jp-116.206.93.48-vmess
-      - us-104.247.120.73-ss
+      - mvoecsoh
+      - kaka-mkujoric
+      - kaka-ncj8gl84
+      - vless-sg-ynctc-ws-tls
+      - vmess-34.142.233.190-51870
+      - vmess-206.223.84.193-27811
+      - ss-206.223.84.193-23322
+      - vmess-116.206.93.48-11683-2
+      - vmess-104.247.120.73-38080-2
+      - vmess-8.211.169.232-18955
+      - ss-11b0072d-ed8b-491d-b9e4-49e0014ba805
       - DIRECT
 
 # ======= 浠ヤ笅鏄綘 copy 鐨勯偅涓€澶у爢 rules锛屽師鏍蜂繚鐣欙紙鍙 group 鍚嶁€淐TC-TEST鈥濆拰鈥滒煍hatGPT鈥濆瓨鍦ㄥ氨琛岋級 =======
@@ -932,4 +1015,3 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
-
