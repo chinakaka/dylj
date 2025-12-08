@@ -143,6 +143,7 @@ proxies:
     uuid: "be029bcf-7500-4436-85ba-1d42f0533281"
     cipher: auto
     tls: true
+    udp: true
     network: ws
     ws-opts:
       path: "/be029bcf-7500-4436-85ba-1d42f0533281"
@@ -157,6 +158,7 @@ proxies:
     alterId: 0
     cipher: auto
     tls: false
+    udp: true
     network: tcp
 
   - name: "us-206.223.84.192-ss"
@@ -165,6 +167,7 @@ proxies:
     port: 23322
     cipher: chacha20-ietf-poly1305
     password: "vC9Jda+Cd8kRrZ3hRxa1mmAeoeoxWJdR1rcfOUeIMqU="
+    udp: true
 
   - name: "jp-116.206.93.48-vmess"
     type: vmess
@@ -174,6 +177,7 @@ proxies:
     alterId: 0
     cipher: auto
     tls: false
+    udp: true
     network: tcp
 
   - name: "us-104.247.120.73-ss"
@@ -182,47 +186,56 @@ proxies:
     port: 26406
     cipher: chacha20-ietf-poly1305
     password: "Y1Y4EZRx+K+Tt6fpNw5rbbOV24fM2QlbQBNTJvI1/J0="
+    udp: true
 
 proxy-groups:
-  # 涓荤瓥鐣ョ粍锛氳鍒欓噷鏈€鍚� MATCH,CTC-TEST 灏辨槸鐢ㄨ繖涓�
+  # 主策略组：规则里最后 MATCH,CTC-TEST 就是用这个
   - name: CTC-TEST
     type: select
     proxies:
-      - 鈾伙笍鑷姩閫夋嫨
-      - 馃敮鏁呴殰杞Щ
-      - 馃敟ChatGPT
-      - mvoecsoh
-      - kaka-mkujoric
-      - kaka-ncj8gl84
+      - ♻️自动选择
+      - 🔯故障转移
+      - 🔥ChatGPT
+      - sg-sg.ynctc.net-vless
+      - us-206.223.84.192-vmess
+      - us-206.223.84.192-ss
+      - jp-116.206.93.48-vmess
+      - us-104.247.120.73-ss
       - DIRECT
 
-  # 鑷姩娴嬮€燂細鍦ㄤ綘鑷繁鐨� 3 涓妭鐐逛箣闂存祴閫熼€夋渶蹇�
-  - name: 鈾伙笍鑷姩閫夋嫨
+  # 自动测速：在你自己的 5 个节点之间测速选最快
+  - name: ♻️自动选择
     type: url-test
     proxies:
-      - mvoecsoh
-      - kaka-mkujoric
-      - kaka-ncj8gl84
+      - sg-sg.ynctc.net-vless
+      - us-206.223.84.192-vmess
+      - us-206.223.84.192-ss
+      - jp-116.206.93.48-vmess
+      - us-104.247.120.73-ss
     url: 'http://1.1.1.1'
     interval: 600
 
-  # 鏁呴殰杞Щ锛氫紭鍏堢涓€涓紝鎸備簡鑷姩鍒囦笅涓€涓�
-  - name: 馃敮鏁呴殰杞Щ
+  # 故障转移：优先第一个，挂了自动切下一个
+  - name: 🔯故障转移
     type: fallback
     proxies:
-      - mvoecsoh
-      - kaka-mkujoric
-      - kaka-ncj8gl84
+      - sg-sg.ynctc.net-vless
+      - us-206.223.84.192-vmess
+      - us-206.223.84.192-ss
+      - jp-116.206.93.48-vmess
+      - us-104.247.120.73-ss
     url: 'http://1.1.1.1'
     interval: 450
 
-  # ChatGPT 涓撶敤鍒嗙粍锛氳鍒欎腑澶ч噺 AI 鍩熷悕璧拌繖閲�
-  - name: 馃敟ChatGPT
+  # ChatGPT 专用分组：规则中大量 AI 域名走这里
+  - name: 🔥ChatGPT
     type: select
     proxies:
-      - mvoecsoh
-      - kaka-mkujoric
-      - kaka-ncj8gl84
+      - sg-sg.ynctc.net-vless
+      - us-206.223.84.192-vmess
+      - us-206.223.84.192-ss
+      - jp-116.206.93.48-vmess
+      - us-104.247.120.73-ss
       - DIRECT
 
 # ======= 浠ヤ笅鏄綘 copy 鐨勯偅涓€澶у爢 rules锛屽師鏍蜂繚鐣欙紙鍙 group 鍚嶁€淐TC-TEST鈥濆拰鈥滒煍hatGPT鈥濆瓨鍦ㄥ氨琛岋級 =======
