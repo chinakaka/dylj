@@ -134,49 +134,46 @@ dns:
       - +.googleapis.com
       - +.gvt1.com
 
-
+# ===== 这里开始是你所有自用节点（已全部替换为你最新提供的那些） =====
 proxies:
-
-  - name: "vless-sg-ynctc-ws-tls"
+  - name: "sg-sg.ynctc.net-vless"
     type: vless
     server: sg.ynctc.net
     port: 443
-    uuid: be029bcf-7500-4436-85ba-1d42f0533281
-    flow: ""
+    uuid: "be029bcf-7500-4436-85ba-1d42f0533281"
+    cipher: auto
     udp: true
     tls: true
-    servername: sg.ynctc.net
-    reality-opts: {}
-    client-fingerprint: firefox
     network: ws
+    servername: sg.ynctc.net
     ws-opts:
-      path: /be029bcf-7500-4436-85ba-1d42f0533281
+      path: "/be029bcf-7500-4436-85ba-1d42f0533281"
       headers:
         Host: sg.ynctc.net
 
-  - name: "vmess-34.142.233.190-51870"
+  - name: "node-34.142.233.190-vmess"
     type: vmess
     server: 34.142.233.190
     port: 51870
-    uuid: 37b618e7-8ceb-488d-808d-c3be1579528c
+    uuid: "37b618e7-8ceb-488d-808d-c3be1579528c"
     alterId: 0
     cipher: auto
     udp: true
     tls: false
     network: tcp
 
-  - name: "vmess-206.223.84.193-27811"
+  - name: "us-206.223.84.193-vmess"
     type: vmess
     server: 206.223.84.193
     port: 27811
-    uuid: f64764ba-0072-4a27-9e6f-2796165e9e73
+    uuid: "f64764ba-0072-4a27-9e6f-2796165e9e73"
     alterId: 0
     cipher: auto
     udp: true
     tls: false
     network: tcp
 
-  - name: "ss-206.223.84.193-23322"
+  - name: "us-206.223.84.193-ss"
     type: ss
     server: 206.223.84.193
     port: 23322
@@ -184,79 +181,125 @@ proxies:
     password: "vC9Jda+Cd8kRrZ3hRxa1mmAeoeoxWJdR1rcfOUeIMqU="
     udp: true
 
-  - name: "vmess-116.206.93.48-11683-2"
+  - name: "jp-116.206.93.48-vmess"
     type: vmess
     server: 116.206.93.48
     port: 11683
-    uuid: 65689658-a81d-40fd-bd1c-b67998737e9c
+    uuid: "65689658-a81d-40fd-bd1c-b67998737e9c"
     alterId: 0
     cipher: auto
     udp: true
     tls: false
     network: tcp
 
-  - name: "vmess-104.247.120.73-38080-2"
+  - name: "us-104.247.120.73-vmess"
     type: vmess
     server: 104.247.120.73
     port: 38080
-    uuid: 09b816f8-125e-40aa-9b53-e09568ebf46a
+    uuid: "09b816f8-125e-40aa-9b53-e09568ebf46a"
     alterId: 0
     cipher: auto
     udp: true
     tls: false
     network: tcp
 
-  - name: "vmess-8.211.169.232-18955"
+  - name: "sg-8.211.169.232-vmess-1"
     type: vmess
     server: 8.211.169.232
     port: 18955
-    uuid: 32d79f0e-5c23-480e-9414-63532a28139f
+    uuid: "32d79f0e-5c23-480e-9414-63532a28139f"
     alterId: 0
     cipher: auto
     udp: true
     tls: false
     network: tcp
 
-  - name: "ss-11b0072d-ed8b-491d-b9e4-49e0014ba805"
+  - name: "sg-8.211.169.232-vmess-2"
+    type: vmess
+    server: 8.211.169.232
+    port: 18955
+    uuid: "32d79f0e-5c23-480e-9414-63532a28139f"
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: false
+    network: tcp
+
+  - name: "tik-11b0072d-ss"
     type: ss
     server: 11b0072d-ed8b-491d-b9e4-49e0014ba805.tikdns.net
     port: 15888
     cipher: aes-128-cfb
-    password: FPOQqR4J
+    password: "FPOQqR4J"
     udp: true
 
 proxy-groups:
-  # 涓荤瓥鐣ョ粍锛氳鍒欓噷鏈€鍚� MATCH,CTC-TEST 灏辨槸鐢ㄨ繖涓�
+  # 主策略组：规则里最后 MATCH, CTC-TEST 就是用这个
   - name: CTC-TEST
     type: select
     proxies:
-      - 鈾伙笍鑷姩閫夋嫨
-      - 馃敮鏁呴殰杞Щ
-      - 馃敟ChatGPT
-      - vless-sg-ynctc-ws-tls
-      - vmess-34.142.233.190-51870
-      - vmess-206.223.84.193-27811
-      - ss-206.223.84.193-23322
-      - vmess-116.206.93.48-11683-2
-      - vmess-104.247.120.73-38080-2
-      - vmess-8.211.169.232-18955
-      - ss-11b0072d-ed8b-491d-b9e4-49e0014ba805
-      - DIRECT
-  # ChatGPT 涓撶敤鍒嗙粍锛氳鍒欎腑澶ч噺 AI 鍩熷悕璧拌繖閲�
-  - name: 馃敟ChatGPT
-    type: select
-    proxies:
-      - vless-sg-ynctc-ws-tls
-      - vmess-34.142.233.190-51870
-      - vmess-206.223.84.193-27811
-      - ss-206.223.84.193-23322
-      - vmess-116.206.93.48-11683-2
-      - vmess-104.247.120.73-38080-2
-      - vmess-8.211.169.232-18955
-      - ss-11b0072d-ed8b-491d-b9e4-49e0014ba805
+      - ♻️自动选择
+      - 🔯故障转移
+      - 🔥ChatGPT
+      - sg-sg.ynctc.net-vless
+      - node-34.142.233.190-vmess
+      - us-206.223.84.193-vmess
+      - us-206.223.84.193-ss
+      - jp-116.206.93.48-vmess
+      - us-104.247.120.73-vmess
+      - sg-8.211.169.232-vmess-1
+      - sg-8.211.169.232-vmess-2
+      - tik-11b0072d-ss
       - DIRECT
 
-# ======= 浠ヤ笅鏄綘 copy 鐨勯偅涓€澶у爢 rules锛屽師鏍蜂繚鐣欙紙鍙 group 鍚嶁€淐TC-TEST鈥濆拰鈥滒煍hatGPT鈥濆瓨鍦ㄥ氨琛岋級 =======
+  # 自动测速：在你自己的所有节点之间测速选最快
+  - name: ♻️自动选择
+    type: url-test
+    proxies:
+      - sg-sg.ynctc.net-vless
+      - node-34.142.233.190-vmess
+      - us-206.223.84.193-vmess
+      - us-206.223.84.193-ss
+      - jp-116.206.93.48-vmess
+      - us-104.247.120.73-vmess
+      - sg-8.211.169.232-vmess-1
+      - sg-8.211.169.232-vmess-2
+      - tik-11b0072d-ss
+    url: 'http://1.1.1.1'
+    interval: 600
+
+  # 故障转移：优先第一个，挂了自动切下一个
+  - name: 🔯故障转移
+    type: fallback
+    proxies:
+      - sg-sg.ynctc.net-vless
+      - node-34.142.233.190-vmess
+      - us-206.223.84.193-vmess
+      - us-206.223.84.193-ss
+      - jp-116.206.93.48-vmess
+      - us-104.247.120.73-vmess
+      - sg-8.211.169.232-vmess-1
+      - sg-8.211.169.232-vmess-2
+      - tik-11b0072d-ss
+    url: 'http://1.1.1.1'
+    interval: 450
+
+  # ChatGPT 专用分组：规则中大量 AI 域名走这里
+  - name: 🔥ChatGPT
+    type: select
+    proxies:
+      - sg-sg.ynctc.net-vless
+      - node-34.142.233.190-vmess
+      - us-206.223.84.193-vmess
+      - us-206.223.84.193-ss
+      - jp-116.206.93.48-vmess
+      - us-104.247.120.73-vmess
+      - sg-8.211.169.232-vmess-1
+      - sg-8.211.169.232-vmess-2
+      - tik-11b0072d-ss
+      - DIRECT
+
+# ======= 以下是你原来那一大堆 rules，保持不动（只认 CTC-TEST / 🔥ChatGPT 这些分组名即可） =======
 rules:
   - 'DOMAIN,subapi.doggysub.uk,DIRECT'
   - 'PROCESS-NAME,v2ray,DIRECT'
@@ -338,108 +381,108 @@ rules:
   - 'DOMAIN-SUFFIX,apple.com,DIRECT'
   - 'DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT'
   - 'DOMAIN-SUFFIX,apple-mapkit.com,DIRECT'
-  - 'DOMAIN,browser-intake-datadoghq.com,馃敟ChatGPT'
-  - 'DOMAIN,chat.openai.com.cdn.cloudflare.net,馃敟ChatGPT'
-  - 'DOMAIN,gemini.google.com,馃敟ChatGPT'
-  - 'DOMAIN,openai-api.arkoselabs.com,馃敟ChatGPT'
-  - 'DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,馃敟ChatGPT'
-  - 'DOMAIN,openaicomproductionae4b.blob.core.windows.net,馃敟ChatGPT'
-  - 'DOMAIN,production-openaicom-storage.azureedge.net,馃敟ChatGPT'
-  - 'DOMAIN,static.cloudflareinsights.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,ai.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,algolia.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,api.statsig.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,auth0.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,chatgpt.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,chatgpt.livekit.cloud,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,client-api.arkoselabs.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,events.statsigapi.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,featuregates.org,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,host.livekit.cloud,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,identrust.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,intercom.io,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,intercomcdn.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,launchdarkly.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,oaistatic.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,oaiusercontent.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,observeit.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,openai.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,openaiapi-site.azureedge.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,openaicom.imgix.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,segment.io,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,sentry.io,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,stripe.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,turn.livekit.cloud,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,sora.com,馃敟ChatGPT'
-  - 'DOMAIN-KEYWORD,openai,馃敟ChatGPT'
-  - 'DOMAIN,api.msn.com,馃敟ChatGPT'
-  - 'DOMAIN,api.statsig.com,馃敟ChatGPT'
-  - 'DOMAIN,assets.msn.com,馃敟ChatGPT'
-  - 'DOMAIN,browser-intake-datadoghq.com,馃敟ChatGPT'
-  - 'DOMAIN,chat.openai.com.cdn.cloudflare.net,馃敟ChatGPT'
-  - 'DOMAIN,copilot.microsoft.com,馃敟ChatGPT'
-  - 'DOMAIN,gateway.bingviz.microsoft.net,馃敟ChatGPT'
-  - 'DOMAIN,gateway.bingviz.microsoftapp.net,馃敟ChatGPT'
-  - 'DOMAIN,in.appcenter.ms,馃敟ChatGPT'
-  - 'DOMAIN,location.microsoft.com,馃敟ChatGPT'
-  - 'DOMAIN,odc.officeapps.live.com,馃敟ChatGPT'
-  - 'DOMAIN,openai-api.arkoselabs.com,馃敟ChatGPT'
-  - 'DOMAIN,openaicomproductionae4b.blob.core.windows.net,馃敟ChatGPT'
-  - 'DOMAIN,production-openaicom-storage.azureedge.net,馃敟ChatGPT'
-  - 'DOMAIN,r.bing.com,馃敟ChatGPT'
-  - 'DOMAIN,self.events.data.microsoft.com,馃敟ChatGPT'
-  - 'DOMAIN,services.bingapis.com,馃敟ChatGPT'
-  - 'DOMAIN,static.cloudflareinsights.com,馃敟ChatGPT'
-  - 'DOMAIN,sydney.bing.com,馃敟ChatGPT'
-  - 'DOMAIN,www.bing.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,algolia.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,api.microsoftapp.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,auth0.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,bing-shopping.microsoft-falcon.io,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,challenges.cloudflare.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,chatgpt.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,chatgpt.livekit.cloud,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,client-api.arkoselabs.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,edgeservices.bing.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,events.statsigapi.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,featuregates.org,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,host.livekit.cloud,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,identrust.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,intercom.io,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,intercomcdn.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,launchdarkly.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,oaistatic.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,oaiusercontent.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,observeit.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,openai.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,openaiapi-site.azureedge.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,openaicom.imgix.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,segment.io,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,sentry.io,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,stripe.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,turn.livekit.cloud,馃敟ChatGPT'
-  - 'DOMAIN-KEYWORD,openaicom-api,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,githubcopilot.com,馃敟ChatGPT'
-  - 'DOMAIN,ai.google.dev,馃敟ChatGPT'
-  - 'DOMAIN,alkalimakersuite-pa.clients6.google.com,馃敟ChatGPT'
-  - 'DOMAIN,makersuite.google.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,bard.google.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,deepmind.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,deepmind.google,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,gemini.google.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,generativeai.google,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,apis.google.com,馃敟ChatGPT'
-  - 'DOMAIN-KEYWORD,colab,馃敟ChatGPT'
-  - 'DOMAIN-KEYWORD,developerprofiles,馃敟ChatGPT'
-  - 'DOMAIN-KEYWORD,generativelanguage,馃敟ChatGPT'
-  - 'DOMAIN,cdn.usefathom.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,anthropic.com,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,claude.ai,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,razie.ai,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,razie.aws.intellij.net,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,etbrains.ai,馃敟ChatGPT'
-  - 'DOMAIN-SUFFIX,meta.com,馃敟ChatGPT'
+  - 'DOMAIN,browser-intake-datadoghq.com,🔥ChatGPT'
+  - 'DOMAIN,chat.openai.com.cdn.cloudflare.net,🔥ChatGPT'
+  - 'DOMAIN,gemini.google.com,🔥ChatGPT'
+  - 'DOMAIN,openai-api.arkoselabs.com,🔥ChatGPT'
+  - 'DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,🔥ChatGPT'
+  - 'DOMAIN,openaicomproductionae4b.blob.core.windows.net,🔥ChatGPT'
+  - 'DOMAIN,production-openaicom-storage.azureedge.net,🔥ChatGPT'
+  - 'DOMAIN,static.cloudflareinsights.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,ai.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,algolia.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,api.statsig.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,auth0.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,chatgpt.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,chatgpt.livekit.cloud,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,client-api.arkoselabs.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,events.statsigapi.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,featuregates.org,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,host.livekit.cloud,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,identrust.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,intercom.io,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,intercomcdn.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,launchdarkly.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,oaistatic.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,oaiusercontent.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,observeit.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,openai.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,openaiapi-site.azureedge.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,openaicom.imgix.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,segment.io,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,sentry.io,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,stripe.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,turn.livekit.cloud,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,sora.com,🔥ChatGPT'
+  - 'DOMAIN-KEYWORD,openai,🔥ChatGPT'
+  - 'DOMAIN,api.msn.com,🔥ChatGPT'
+  - 'DOMAIN,api.statsig.com,🔥ChatGPT'
+  - 'DOMAIN,assets.msn.com,🔥ChatGPT'
+  - 'DOMAIN,browser-intake-datadoghq.com,🔥ChatGPT'
+  - 'DOMAIN,chat.openai.com.cdn.cloudflare.net,🔥ChatGPT'
+  - 'DOMAIN,copilot.microsoft.com,🔥ChatGPT'
+  - 'DOMAIN,gateway.bingviz.microsoft.net,🔥ChatGPT'
+  - 'DOMAIN,gateway.bingviz.microsoftapp.net,🔥ChatGPT'
+  - 'DOMAIN,in.appcenter.ms,🔥ChatGPT'
+  - 'DOMAIN,location.microsoft.com,🔥ChatGPT'
+  - 'DOMAIN,odc.officeapps.live.com,🔥ChatGPT'
+  - 'DOMAIN,openai-api.arkoselabs.com,🔥ChatGPT'
+  - 'DOMAIN,openaicomproductionae4b.blob.core.windows.net,🔥ChatGPT'
+  - 'DOMAIN,production-openaicom-storage.azureedge.net,🔥ChatGPT'
+  - 'DOMAIN,r.bing.com,🔥ChatGPT'
+  - 'DOMAIN,self.events.data.microsoft.com,🔥ChatGPT'
+  - 'DOMAIN,services.bingapis.com,🔥ChatGPT'
+  - 'DOMAIN,static.cloudflareinsights.com,🔥ChatGPT'
+  - 'DOMAIN,sydney.bing.com,🔥ChatGPT'
+  - 'DOMAIN,www.bing.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,algolia.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,api.microsoftapp.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,auth0.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,bing-shopping.microsoft-falcon.io,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,challenges.cloudflare.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,chatgpt.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,chatgpt.livekit.cloud,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,client-api.arkoselabs.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,edgeservices.bing.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,events.statsigapi.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,featuregates.org,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,host.livekit.cloud,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,identrust.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,intercom.io,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,intercomcdn.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,launchdarkly.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,oaistatic.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,oaiusercontent.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,observeit.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,openai.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,openaiapi-site.azureedge.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,openaicom.imgix.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,segment.io,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,sentry.io,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,stripe.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,turn.livekit.cloud,🔥ChatGPT'
+  - 'DOMAIN-KEYWORD,openaicom-api,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,githubcopilot.com,🔥ChatGPT'
+  - 'DOMAIN,ai.google.dev,🔥ChatGPT'
+  - 'DOMAIN,alkalimakersuite-pa.clients6.google.com,🔥ChatGPT'
+  - 'DOMAIN,makersuite.google.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,bard.google.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,deepmind.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,deepmind.google,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,gemini.google.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,generativeai.google,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,apis.google.com,🔥ChatGPT'
+  - 'DOMAIN-KEYWORD,colab,🔥ChatGPT'
+  - 'DOMAIN-KEYWORD,developerprofiles,🔥ChatGPT'
+  - 'DOMAIN-KEYWORD,generativelanguage,🔥ChatGPT'
+  - 'DOMAIN,cdn.usefathom.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,anthropic.com,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,claude.ai,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,razie.ai,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,razie.aws.intellij.net,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,etbrains.ai,🔥ChatGPT'
+  - 'DOMAIN-SUFFIX,meta.com,🔥ChatGPT'
   - 'DOMAIN-SUFFIX,cn,DIRECT'
   - 'DOMAIN-KEYWORD,-cn,DIRECT'
   - 'DOMAIN-SUFFIX,126.com,DIRECT'
@@ -938,10 +981,10 @@ rules:
   - 'IP-CIDR,220.181.174.162/32,CTC-TEST,no-resolve'
   - 'IP-CIDR,220.181.174.226/32,CTC-TEST,no-resolve'
   - 'IP-CIDR,220.181.174.34/32,CTC-TEST,no-resolve'
-  - 'IP-CIDR,24.199.123.28/32,馃敟ChatGPT,no-resolve'
-  - 'IP-CIDR,64.23.132.171/32,馃敟ChatGPT,no-resolve'
-  - 'IP-CIDR,24.199.123.28/32,馃敟ChatGPT,no-resolve'
-  - 'IP-CIDR,64.23.132.171/32,馃敟ChatGPT,no-resolve'
+  - 'IP-CIDR,24.199.123.28/32,🔥ChatGPT,no-resolve'
+  - 'IP-CIDR,64.23.132.171/32,🔥ChatGPT,no-resolve'
+  - 'IP-CIDR,24.199.123.28/32,🔥ChatGPT,no-resolve'
+  - 'IP-CIDR,64.23.132.171/32,🔥ChatGPT,no-resolve'
   - 'DOMAIN,injections.adguard.org,DIRECT'
   - 'DOMAIN,local.adguard.org,DIRECT'
   - 'DOMAIN-SUFFIX,local,DIRECT'
@@ -955,4 +998,3 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
-
