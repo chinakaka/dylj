@@ -213,7 +213,7 @@ proxies:
     tls: false
     network: tcp
 
-  - name: "tik-11b0072d-ss"
+  - name: "hk-11b0072d-ss"
     type: ss
     server: 11b0072d-ed8b-491d-b9e4-49e0014ba805.tikdns.net
     port: 15888
@@ -236,7 +236,7 @@ proxy-groups:
       - jp-116.206.93.48-vmess
       - us-104.247.120.73-vmess
       - jp-8.211.169.232-vmess
-      - tik-11b0072d-ss
+      - hk-11b0072d-ss
       - DIRECT
 
   # 自动测速
@@ -250,7 +250,7 @@ proxy-groups:
       - jp-116.206.93.48-vmess
       - us-104.247.120.73-vmess
       - jp-8.211.169.232-vmess
-      - tik-11b0072d-ss
+      - hk-11b0072d-ss
     url: 'http://1.1.1.1'
     interval: 600
 
@@ -265,7 +265,6 @@ proxy-groups:
       - jp-116.206.93.48-vmess
       - us-104.247.120.73-vmess
       - jp-8.211.169.232-vmess
-      - tik-11b0072d-ss
     url: 'http://1.1.1.1'
     interval: 450
 
@@ -981,4 +980,5 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
