@@ -134,7 +134,6 @@ dns:
       - +.googleapis.com
       - +.gvt1.com
 
-# ===== 这里开始是你所有自用节点（已全部替换为你最新提供的那些） =====
 proxies:
   - name: "sg-sg.ynctc.net-vless"
     type: vless
@@ -203,18 +202,7 @@ proxies:
     tls: false
     network: tcp
 
-  - name: "sg-8.211.169.232-vmess-1"
-    type: vmess
-    server: 8.211.169.232
-    port: 18955
-    uuid: "32d79f0e-5c23-480e-9414-63532a28139f"
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: false
-    network: tcp
-
-  - name: "sg-8.211.169.232-vmess-2"
+  - name: "jp-8.211.169.232-vmess"
     type: vmess
     server: 8.211.169.232
     port: 18955
@@ -234,7 +222,7 @@ proxies:
     udp: true
 
 proxy-groups:
-  # 主策略组：规则里最后 MATCH, CTC-TEST 就是用这个
+  # 主策略组
   - name: CTC-TEST
     type: select
     proxies:
@@ -247,12 +235,11 @@ proxy-groups:
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
       - us-104.247.120.73-vmess
-      - sg-8.211.169.232-vmess-1
-      - sg-8.211.169.232-vmess-2
+      - jp-8.211.169.232-vmess
       - tik-11b0072d-ss
       - DIRECT
 
-  # 自动测速：在你自己的所有节点之间测速选最快
+  # 自动测速
   - name: ♻️自动选择
     type: url-test
     proxies:
@@ -262,13 +249,12 @@ proxy-groups:
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
       - us-104.247.120.73-vmess
-      - sg-8.211.169.232-vmess-1
-      - sg-8.211.169.232-vmess-2
+      - jp-8.211.169.232-vmess
       - tik-11b0072d-ss
     url: 'http://1.1.1.1'
     interval: 600
 
-  # 故障转移：优先第一个，挂了自动切下一个
+  # 故障转移
   - name: 🔯故障转移
     type: fallback
     proxies:
@@ -278,13 +264,12 @@ proxy-groups:
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
       - us-104.247.120.73-vmess
-      - sg-8.211.169.232-vmess-1
-      - sg-8.211.169.232-vmess-2
+      - jp-8.211.169.232-vmess
       - tik-11b0072d-ss
     url: 'http://1.1.1.1'
     interval: 450
 
-  # ChatGPT 专用分组：规则中大量 AI 域名走这里
+  # ChatGPT 专用分组
   - name: 🔥ChatGPT
     type: select
     proxies:
@@ -294,9 +279,7 @@ proxy-groups:
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
       - us-104.247.120.73-vmess
-      - sg-8.211.169.232-vmess-1
-      - sg-8.211.169.232-vmess-2
-      - tik-11b0072d-ss
+      - jp-8.211.169.232-vmess
       - DIRECT
 
 # ======= 以下是你原来那一大堆 rules，保持不动（只认 CTC-TEST / 🔥ChatGPT 这些分组名即可） =======
@@ -998,3 +981,4 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
