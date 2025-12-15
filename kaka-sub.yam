@@ -135,7 +135,7 @@ dns:
       - +.gvt1.com
 
 proxies:
-  - name: "sg-sg.ynctc.net-vless"
+  #- name: "sg-sg.ynctc.net-vless"
     type: vless
     server: sg.ynctc.net
     port: 443
@@ -150,7 +150,7 @@ proxies:
       headers:
         Host: sg.ynctc.net
 
-  - name: "node-34.142.233.190-vmess"
+  #- name: "node-34.142.233.190-vmess"
     type: vmess
     server: 34.142.233.190
     port: 51870
@@ -229,8 +229,8 @@ proxy-groups:
       - ♻️自动选择
       - 🔯故障转移
       - 🔥ChatGPT
-      - sg-sg.ynctc.net-vless
-      - node-34.142.233.190-vmess
+      #- sg-sg.ynctc.net-vless
+      #- node-34.142.233.190-vmess
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -243,8 +243,8 @@ proxy-groups:
   - name: ♻️自动选择
     type: url-test
     proxies:
-      - sg-sg.ynctc.net-vless
-      - node-34.142.233.190-vmess
+      #- sg-sg.ynctc.net-vless
+      #- node-34.142.233.190-vmess
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -258,8 +258,8 @@ proxy-groups:
   - name: 🔯故障转移
     type: fallback
     proxies:
-      - sg-sg.ynctc.net-vless
-      - node-34.142.233.190-vmess
+      #- sg-sg.ynctc.net-vless
+      #- node-34.142.233.190-vmess
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -272,8 +272,8 @@ proxy-groups:
   - name: 🔥ChatGPT
     type: select
     proxies:
-      - sg-sg.ynctc.net-vless
-      - node-34.142.233.190-vmess
+      #- sg-sg.ynctc.net-vless
+      #- node-34.142.233.190-vmess
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -980,5 +980,6 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
 
