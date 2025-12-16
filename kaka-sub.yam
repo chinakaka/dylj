@@ -135,6 +135,19 @@ dns:
       - +.gvt1.com
 
 proxies:
+  - name: TUIC-34.126.168.108
+    type: tuic
+    server: 34.126.168.108
+    port: 20037
+    uuid: e1cc6b8c-f6a2-445a-bd57-c87a10a93fa0
+    password: 0cf7d6506f6a6c4334c6266f467908fa
+    sni: www.bing.com
+    alpn:
+      - h3
+    congestion-controller: bbr
+    udp-relay-mode: native
+    skip-cert-verify: true
+
   - name: sg-sg.ynctc.net-vless
     type: vless
     server: sg.ynctc.net
@@ -240,6 +253,7 @@ proxy-groups:
       - ♻️自动选择
       - 🔯故障转移
       - 🔥ChatGPT
+      - TUIC-34.126.168.108
       - sg-sg.ynctc.net-vless
       - sg-34.126.168.108-vmess
       - sg-sg.ynctc.net-hysteria2
@@ -255,6 +269,7 @@ proxy-groups:
   - name: ♻️自动选择
     type: url-test
     proxies:
+      - TUIC-34.126.168.108
       - sg-sg.ynctc.net-vless
       - sg-34.126.168.108-vmess
       - sg-sg.ynctc.net-hysteria2
@@ -271,6 +286,7 @@ proxy-groups:
   - name: 🔯故障转移
     type: fallback
     proxies:
+      - TUIC-34.126.168.108
       - sg-sg.ynctc.net-vless
       - sg-34.126.168.108-vmess
       - sg-sg.ynctc.net-hysteria2
@@ -286,6 +302,7 @@ proxy-groups:
   - name: 🔥ChatGPT
     type: select
     proxies:
+      - TUIC-34.126.168.108
       - sg-sg.ynctc.net-vless
       - sg-34.126.168.108-vmess
       - sg-sg.ynctc.net-hysteria2
@@ -995,6 +1012,7 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
 
 
