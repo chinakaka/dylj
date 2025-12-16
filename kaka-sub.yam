@@ -135,6 +135,16 @@ dns:
       - +.gvt1.com
 
 proxies:
+- name: "sg-sg.ynctc.net-hysteria2"
+  type: hysteria2
+  server: 34.126.168.108
+  port: 22222
+  password: ieshare2025
+  sni: www.bing.com
+  skip-cert-verify: true
+  alpn:
+    - h3
+
   - name: "us-206.223.84.193-vmess"
     type: vmess
     server: 206.223.84.193
@@ -203,6 +213,7 @@ proxy-groups:
       - ♻️自动选择
       - 🔯故障转移
       - 🔥ChatGPT
+      - sg-sg.ynctc.net-hysteria2
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -215,6 +226,7 @@ proxy-groups:
   - name: ♻️自动选择
     type: url-test
     proxies:
+      - sg-sg.ynctc.net-hysteria2
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -228,6 +240,7 @@ proxy-groups:
   - name: 🔯故障转移
     type: fallback
     proxies:
+      - sg-sg.ynctc.net-hysteria2
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -240,6 +253,7 @@ proxy-groups:
   - name: 🔥ChatGPT
     type: select
     proxies:
+      - sg-sg.ynctc.net-hysteria2
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -946,6 +960,7 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
 
 
