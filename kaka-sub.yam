@@ -135,15 +135,15 @@ dns:
       - +.gvt1.com
 
 proxies:
-- name: "sg-sg.ynctc.net-hysteria2"
-  type: hysteria2
-  server: 34.126.168.108
-  port: 22222
-  password: ieshare2025
-  sni: www.bing.com
-  skip-cert-verify: true
-  alpn:
-    - h3
+  - name: "sg-sg.ynctc.net-hysteria2"
+    type: hysteria2
+    server: 34.126.168.108
+    port: 22222
+    password: ieshare2025
+    sni: www.bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
 
   - name: "us-206.223.84.193-vmess"
     type: vmess
@@ -204,6 +204,7 @@ proxies:
     cipher: aes-128-cfb
     password: "FPOQqR4J"
     udp: true
+
 
 proxy-groups:
   # 主策略组
@@ -960,6 +961,7 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
 
 
