@@ -135,54 +135,31 @@ dns:
       - +.gvt1.com
 
 proxies:
-  - name: TUIC-34.126.168.108
+  - name: sg-ynctc.net-tuic-v5
     type: tuic
     server: 34.126.168.108
-    port: 20037
-    uuid: e1cc6b8c-f6a2-445a-bd57-c87a10a93fa0
-    password: 0cf7d6506f6a6c4334c6266f467908fa
-    sni: www.bing.com
+    port: 22597
+    uuid: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
+    password: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
     alpn:
       - h3
     congestion-controller: bbr
-    udp-relay-mode: native
     skip-cert-verify: true
+    sni: www.microsoft.com
 
-  - name: sg-sg.ynctc.net-vless
+  - name: sg-sg.ynctc.net-vless-reality-warp
     type: vless
-    server: sg.ynctc.net
-    port: 443
-    uuid: 64795427-6bdf-4fed-a0ec-bf83be7c2942
-    cipher: auto
-    udp: true
-    tls: true
-    servername: sg.ynctc.net
-    network: ws
-    ws-opts:
-      path: /64795427-6bdf-4fed-a0ec-bf83be7c2942
-      headers:
-        Host: sg.ynctc.net
-
-  - name: sg-34.126.168.108-vmess
-    type: vmess
     server: 34.126.168.108
-    port: 52727
-    uuid: 034161d7-13d6-421f-931c-9c00c3797662
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: false
+    port: 27304
+    uuid: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
     network: tcp
-
-  - name: "sg-sg.ynctc.net-hysteria2"
-    type: hysteria2
-    server: 34.126.168.108
-    port: 22222
-    password: ieshare2025
-    sni: www.bing.com
-    skip-cert-verify: true
-    alpn:
-      - h3
+    tls: true
+    flow: xtls-rprx-vision
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: 9_QZ52RLhogc-QQuIsTdSpjkXMIY63NAbl6hcFKaOgE
+      short-id: "0418b628314e842a"
+    client-fingerprint: chrome
 
   - name: "us-206.223.84.193-vmess"
     type: vmess
@@ -253,10 +230,8 @@ proxy-groups:
       - ♻️自动选择
       - 🔯故障转移
       - 🔥ChatGPT
-      - TUIC-34.126.168.108
-      - sg-sg.ynctc.net-vless
-      - sg-34.126.168.108-vmess
-      - sg-sg.ynctc.net-hysteria2
+      - sg-ynctc.net-tuic-v5
+      - sg-sg.ynctc.net-vless-reality-warp
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -269,10 +244,8 @@ proxy-groups:
   - name: ♻️自动选择
     type: url-test
     proxies:
-      - TUIC-34.126.168.108
-      - sg-sg.ynctc.net-vless
-      - sg-34.126.168.108-vmess
-      - sg-sg.ynctc.net-hysteria2
+      - sg-ynctc.net-tuic-v5
+      - sg-sg.ynctc.net-vless-reality-warp
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -286,10 +259,8 @@ proxy-groups:
   - name: 🔯故障转移
     type: fallback
     proxies:
-      - TUIC-34.126.168.108
-      - sg-sg.ynctc.net-vless
-      - sg-34.126.168.108-vmess
-      - sg-sg.ynctc.net-hysteria2
+      - sg-ynctc.net-tuic-v5
+      - sg-sg.ynctc.net-vless-reality-warp
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -302,10 +273,8 @@ proxy-groups:
   - name: 🔥ChatGPT
     type: select
     proxies:
-      - TUIC-34.126.168.108
-      - sg-sg.ynctc.net-vless
-      - sg-34.126.168.108-vmess
-      - sg-sg.ynctc.net-hysteria2
+      - sg-ynctc.net-tuic-v5
+      - sg-sg.ynctc.net-vless-reality-warp
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -1012,6 +981,7 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
 
 
