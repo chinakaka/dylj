@@ -161,6 +161,19 @@ proxies:
       short-id: "0418b628314e842a"
     client-fingerprint: chrome
 
+  - name: 69.63.214.238-vless-1hdo99i3
+    type: vless
+    server: 69.63.214.238
+    port: 46070
+    uuid: f8d7b4d0-2017-4ee4-b5a7-93dcb388fcc2
+    network: tcp
+    udp: true
+    tls: true
+    servername: www.oracle.com
+    reality-opts:
+      public-key: MY9z2er4XM-DIXfFW_fax7uErlNSWTW5DgIcUdMJkR0
+      short-id: "64e445baf8b5e8"
+
   - name: "us-206.223.84.193-vmess"
     type: vmess
     server: 206.223.84.193
@@ -232,6 +245,7 @@ proxy-groups:
       - 🔥ChatGPT
       - sg-ynctc.net-tuic-v5
       - sg-sg.ynctc.net-vless-reality-warp
+      - 69.63.214.238-vless-1hdo99i3
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -246,6 +260,7 @@ proxy-groups:
     proxies:
       - sg-ynctc.net-tuic-v5
       - sg-sg.ynctc.net-vless-reality-warp
+      - 69.63.214.238-vless-1hdo99i3
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -261,6 +276,7 @@ proxy-groups:
     proxies:
       - sg-ynctc.net-tuic-v5
       - sg-sg.ynctc.net-vless-reality-warp
+      - 69.63.214.238-vless-1hdo99i3
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -275,6 +291,7 @@ proxy-groups:
     proxies:
       - sg-ynctc.net-tuic-v5
       - sg-sg.ynctc.net-vless-reality-warp
+      - 69.63.214.238-vless-1hdo99i3
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
       - jp-116.206.93.48-vmess
@@ -981,6 +998,7 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
 
 
