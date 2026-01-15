@@ -135,31 +135,32 @@ dns:
       - +.gvt1.com
 
 proxies:
-  - name: sg-ynctc.net-tuic-v5
-    type: tuic
-    server: 34.126.168.108
-    port: 22597
-    uuid: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
-    password: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
-    alpn:
-      - h3
-    congestion-controller: bbr
-    skip-cert-verify: true
-    sni: www.microsoft.com
+  # - name: sg-ynctc.net-tuic-v5
+  #   type: tuic
+  #   server: 34.126.168.108
+  #   port: 22597
+  #   uuid: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
+  #   password: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
+  #   alpn:
+  #     - h3
+  #   congestion-controller: bbr
+  #   skip-cert-verify: true
+  #   sni: www.microsoft.com
 
-  - name: sg-sg.ynctc.net-vless-reality-warp
-    type: vless
-    server: 34.126.168.108
-    port: 27304
-    uuid: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
-    network: tcp
-    tls: true
-    flow: xtls-rprx-vision
-    servername: www.microsoft.com
-    reality-opts:
-      public-key: 9_QZ52RLhogc-QQuIsTdSpjkXMIY63NAbl6hcFKaOgE
-      short-id: "0418b628314e842a"
-    client-fingerprint: chrome
+  # - name: sg-sg.ynctc.net-vless-reality-warp
+  #   type: vless
+  #   server: 34.126.168.108
+  #   port: 27304
+  #   uuid: b3f9316b-e0fa-4e17-8013-cac3a3fc0bbf
+  #   network: tcp
+  #   tls: true
+  #   flow: xtls-rprx-vision
+  #   servername: www.microsoft.com
+  #   reality-opts:
+  #     public-key: 9_QZ52RLhogc-QQuIsTdSpjkXMIY63NAbl6hcFKaOgE
+  #     short-id: "0418b628314e842a"
+  #   client-fingerprint: chrome
+
 
   - name: 69.63.214.238-vless-1hdo99i3
     type: vless
@@ -998,6 +999,7 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
 
 
