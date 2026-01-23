@@ -135,16 +135,16 @@ dns:
       - +.gvt1.com
 
 proxies:
-  - name: tw-tw.ynctc.net-trojan
-    type: trojan
+  - name: tw-tw.ynctc.net-hysteria2
+    type: hysteria2
     server: 34.80.205.100
-    port: 8886
+    port: 8882
     password: 9055fef1-d2df-44a4-b0fc-0cf5758b6485
     sni: addons.mozilla.org
-    udp: true
+    alpn:
+      - h3
+    ports: 8882,50000-51000
     skip-cert-verify: true
-
-
 
 
   - name: 69.63.214.238-vless-1hdo99i3
@@ -231,7 +231,7 @@ proxy-groups:
       - 🔥ChatGPT
      # - sg-ynctc.net-tuic-v5
      # - sg-sg.ynctc.net-vless-reality-warp
-      - tw-tw.ynctc.net-trojan
+      - tw-tw.ynctc.net-hysteria2
       - 69.63.214.238-vless-1hdo99i3
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
@@ -247,7 +247,7 @@ proxy-groups:
     proxies:
     #  - sg-ynctc.net-tuic-v5
     #  - sg-sg.ynctc.net-vless-reality-warp
-      - tw-tw.ynctc.net-trojan
+      - tw-tw.ynctc.net-hysteria2
       - 69.63.214.238-vless-1hdo99i3
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
@@ -264,7 +264,7 @@ proxy-groups:
     proxies:
     #  - sg-ynctc.net-tuic-v5
     #  - sg-sg.ynctc.net-vless-reality-warp
-      - tw-tw.ynctc.net-trojan
+      - tw-tw.ynctc.net-hysteria2
       - 69.63.214.238-vless-1hdo99i3
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
@@ -280,7 +280,7 @@ proxy-groups:
     proxies:
     #  - sg-ynctc.net-tuic-v5
     #  - sg-sg.ynctc.net-vless-reality-warp
-      - tw-tw.ynctc.net-trojan
+      - tw-tw.ynctc.net-hysteria2
       - 69.63.214.238-vless-1hdo99i3
       - us-206.223.84.193-vmess
       - us-206.223.84.193-ss
@@ -988,6 +988,7 @@ rules:
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - 'GEOIP,CN,DIRECT'
   - 'MATCH,CTC-TEST'
+
 
 
 
